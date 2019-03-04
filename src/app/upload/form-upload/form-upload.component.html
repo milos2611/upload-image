@@ -1,0 +1,43 @@
+<div *ngIf="currentFileUpload" class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+    attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100"
+    [ngStyle]="{width:progress.percentage+'%'}">
+    {{progress.percentage}}%</div>
+</div>
+
+<label class="btn btn-default">
+  <input type="file" (change)="selectFile($event)">
+</label>
+
+<input type="text" #name name="name">
+<input type="text" #description name="description">
+<button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload(name,description)">Upload</button>
+
+
+
+<hr>
+
+<label class="btn btn-default">
+  <input type="file" (change)="selectFileM($event)">
+</label>
+
+<input type="text" [(ngModel)]="category.name" name="name">
+<input type="text" [(ngModel)]="category.description" name="description">
+<input type="number" [(ngModel)]="category.id" name="number">
+
+
+<button class="btn btn-success"  (click)="uploadM()">Upload</button>
+
+
+<!--
+<div>
+  <div>
+      <label for="filePicker">Choose or drag a file:</label><br>
+      <input type="file" id="filePicker" (change)="handleFileSelect($event)">
+  </div>
+  <br>
+  <div>
+      <h1>Base64 encoded version</h1>
+      <textarea id="base64textarea" placeholder="Base64 will appear here" cols="50" rows="15">{{base64textString}}</textarea>
+  </div>
+</div>-->
